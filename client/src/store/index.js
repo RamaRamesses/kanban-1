@@ -39,17 +39,14 @@ export default new Vuex.Store({
           console.log(response.data)
         })
         .catch(err => {
-          Vue.swal.fire({
-            icon: 'error',
-            title: err.response.data.message
-          })
+          Vue.swal.close()
           console.log(err.response)
         })
     },
     login ({ commit }, payload) {
       Vue.swal.showLoading()
       axios({
-        url: 'http://localhost:3000/login',
+        url: 'https://kanbanbaru.herokuapp.com/login',
         method: 'POST',
         data: { email: payload.email, password: payload.password }
       })
